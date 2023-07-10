@@ -1,0 +1,66 @@
+<section>
+    
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-start">
+          <%# <img class="rounded-circle shadow-1-strong me-3"
+            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="40"
+            height="40" /> %>
+          <div class="w-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="text-primary fw-bold mb-0">
+                <%= comment.user.username %> <br>
+                <span class="text-dark ms-2"> <%= comment.body %></span>
+              </h6>
+              <p class="mb-0"><%= time_ago_in_words(comment.created_at) %> ago</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="small mb-0" style="color: #aaa;">
+               <% if current_user == comment.user %>
+              
+                <%= button_to "Delete", [message, comment],style: "margin-right: -551px;", class:"button-2", method: :delete %>
+                
+                <% end %>
+                
+              </p>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+<!-- HTML !-->
+<%# <button class="button-2" role="button">Button 2</button> %>
+<style>
+.link-grey { color: #aaa; } .link-grey:hover { color: #00913b; }
+
+/* CSS */
+.button-2 {
+  float: right;
+  /* margin-right: -770p; */
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+</style>

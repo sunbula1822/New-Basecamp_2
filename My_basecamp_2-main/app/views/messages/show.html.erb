@@ -1,0 +1,61 @@
+<h1 align="center"><%= @message.name %></h1>
+<p align="center"><%= @message.description %></p>
+
+<div>
+
+	<a href="<%= project_messages_path(@message.project_id) %>"  >
+<button class="button-34" style="background: #bd2193c2;">
+Back
+</button>
+</a>
+
+<% if @message.project.user_id == current_user.id %>
+  
+<%= link_to edit_message_path(@message),style: "text-decoration: none;" do %>
+<button class="button-34">Edit</button>
+<% end %>
+
+<%= button_to "Destroy", @message, method: :delete, onclick: "return confirm('Are You Sure Delete This Message!')", style: "float: right;background: #bd2193c2;margin-top: -40px;" ,class: "button-34" %>
+<% end %>
+
+
+</div>
+
+
+
+<div class="container">
+  <%= render 'comments/form', 
+    message: @message, 
+    comment: @message.comments.build,
+    submit_label: "Reply" %>
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', 
+    message: @message, 
+    comment: comment %>
+  <% end %>
+</div>
+
+
+<style>
+.button-34 {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+</style>

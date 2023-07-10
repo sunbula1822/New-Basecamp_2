@@ -1,0 +1,29 @@
+<div align="center" style="font-size: 30px;">
+<div class="div_edit_task">
+<%= form_for([@todo.project, @todo]) do |f| %>
+  <% if @todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+
+      <ul>
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_area :name%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Edit", class: "btn btn-primary"%>
+  </div>
+  <div>
+<%= link_to "Back", new_project_todo_path(@project) %>
+  
+  </div>
+<% end %>
+</div>
+</div>

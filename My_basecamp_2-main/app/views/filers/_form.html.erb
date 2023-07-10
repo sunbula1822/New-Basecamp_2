@@ -1,0 +1,28 @@
+<div class="div_edit_task">
+<%= form_for([@filer.project, @filer]) do |f| %>
+  <% if @filer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filer.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @filer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.file_field :attach, required: true %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Edit", class: "btn btn-primary"%> <br />
+<%= link_to "Back", new_project_todo_path(@project) %>
+
+  </div>
+<% end %>
+</div>

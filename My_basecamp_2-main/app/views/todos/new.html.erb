@@ -1,0 +1,79 @@
+   
+<h1 align="center">Todos</h1>
+<%= form_for([@todo.project, @todo]) do |f| %>
+  <div style="width: 100%;display: flex;justify-content: center;margin-bottom: 2rem;"class="container">
+    <div align="center" style="display: flex;justify-content: center; width: 90%;background-color: #ffffff;border-radius: 10rem;box-shadow: 0 0 1rem #dddcdc;overflow: hidden;transition: width 1s;">
+      <%= f.text_field :name, id: "form1",style: "width: 100%; padding: 0 2rem; outline: none;border: none;font-size: 2rem;", required: true %>
+      <%= f.submit "Creat todo", style: "text-transform: none;border: none;background-image: linear-gradient(to right bottom, rgb(199, 188, 217), rgb(129, 103, 169)); color: #32383d; font-weight: 700;font-size: 2rem;display: inline-block;text-decoration: none;transition: all 0.5s;position: relative;border: none;cursor: pointer;"%>
+    </div>
+  </div>
+<% end %>
+
+  <h5 style="margin-left: 22px;"><%= link_to "Back", project_path(@project), style: "margin-left: 22px; color: #8167a9ff; text-decoration: none;" %></h5>
+<% if @todos.count > 0 %>
+  
+
+<div class="wrapper">
+  <%# <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"> %>
+  <% @todos.each do |todo| %>
+    <% if todo.persisted? %>
+      
+      
+  <ul class="tasks__list">
+    <li class="tasks__item">
+      <%= todo.name %>
+      <div class="tasks__item__configuration">
+        <a href="/projects/107/tasks/107/edit?task_id=57">
+        <%= link_to edit_project_todo_path(todo.project, todo) do %>
+        <i style="font-size: 20px; color: rgb(129, 103, 169);" class="bi bi-pen"></i>
+        <% end %>
+      <%= link_to [todo.project, todo], 'data-turbo-method': :delete, onclick: "return confirm('Are You Sure!')" do %>
+          <i style="font-size: 20px; color: rgb(129, 103, 169);" class="bi bi-trash2"></i>
+        <% end %>
+                                    
+        </div>
+    </li>
+  </ul><br>
+  <% end %>
+    <% end %>
+
+  
+  
+</div>
+    <% end %>
+<style>
+  .wrapper {
+    margin: 5em auto;
+    max-width: 1000px;
+    background-color: rgb(158, 138, 189);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.06);
+
+    /* height: 60rem; */
+      /* background-image: linear-gradient(to right bottom, rgba(250,204,104,0.4), rgba(241,189,170,0.7)); */
+      box-shadow: 0 0 10px #dddcdc;
+      border-radius: 10px;
+  }
+  .tasks__list{
+        height: 100%;
+      overflow: auto;
+  }
+  .tasks__item {
+      width: 90%;
+      margin: 2rem auto 0 auto;
+      list-style: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      border-left: 15px solid rgb(129, 103, 169);
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 0 10px #cbb5dd;
+  }
+  .comments_destroy_svg, .comments_edit_svg {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      transition: transform 0.5s;
+  }
+</style>

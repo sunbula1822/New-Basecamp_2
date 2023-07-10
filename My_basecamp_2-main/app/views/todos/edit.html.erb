@@ -1,0 +1,14 @@
+<h1 align="center">Editing todo</h1>
+<div align="center">
+
+  <h5 style="margin-left: 22px;"><%= link_to "Back", new_project_todo_path(@project), style: "margin-left: 22px; color: #8167a9ff; text-decoration: none;" %></h5>
+
+<%= form_for([@todo.project, @todo]) do |f| %>
+  <div style="width: 100%;display: flex;justify-content: center;margin-bottom: 2rem;"class="container">
+    <div align="center" style="display: flex;justify-content: center; width: 90%;background-color: #ffffff;border-radius: 10rem;box-shadow: 0 0 1rem #dddcdc;overflow: hidden;transition: width 1s;">
+      <%= f.text_field :name, id: "form1",style: "width: 100%; padding: 0 2rem; outline: none;border: none;font-size: 2rem;", required: true %>
+      <%= f.submit "Creat todo", style: "text-transform: none;border: none;background-image: linear-gradient(to right bottom, rgb(199, 188, 217), rgb(129, 103, 169)); color: #32383d; font-weight: 700;font-size: 2rem;display: inline-block;text-decoration: none;transition: all 0.5s;position: relative;border: none;cursor: pointer;"%>
+    </div>
+  </div>
+<% end %>
+</div>

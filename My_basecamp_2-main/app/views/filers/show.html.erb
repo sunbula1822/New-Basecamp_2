@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+<div align="center">
+  <% if @filer.persisted? %>
+    <% if @filer.attach.attached? %>
+      <div class="card" style="width: 25rem;">
+        <% if  @filer.attach.image?%>
+          <%= link_to image_tag(@filer.attach, class: "card-img-top"),  rails_blob_path(@filer.attach, disposition: "attachment") %>
+        </div>
+        <div>
+        <% else %>
+          <h2 class="entry-title"><a href="#"><%= link_to @filer.attach.filename,  rails_blob_path(@filer.attach, disposition: "attachment") %></a></h2>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title" style="margin-top: 12%;"><%= @filer.description %></h5>
+          <%= link_to "Back", new_project_filer_path(@project), class: "btn btn-primary", style: "margin-top: 12%;"  %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<%= form_with(model: [message, comment]) do |f| %>
+  <div style="width: 100%;display: flex;justify-content: center;margin-bottom: 2rem;"class="container">
+    <div align="center" style="display: flex;justify-content: center; width: 90%;background-color: #ffffff;border-radius: 10rem;box-shadow: 0 0 1rem #dddcdc;overflow: hidden;transition: width 1s;">
+      <%= f.text_field :body, id: "form1",style: "width: 100%; padding: 0 2rem; outline: none;border: none;font-size: 2rem;", required: true %>
+      <%= f.submit "Comment", style: "text-transform: none;border: none;background-image: linear-gradient(to right bottom, rgb(199, 188, 217), rgb(129, 103, 169)); color: #32383d; font-weight: 700;font-size: 2rem;display: inline-block;text-decoration: none;transition: all 0.5s;position: relative;border: none;cursor: pointer;"%>
+    </div>
+  </div>
+<% end %>
+
+<style>
+  .tasks__list{
+      height: 100%;
+      overflow: auto;
+  }
+  .tasks__item {
+      width: 90%;
+      margin: 2rem auto 0 auto;
+      list-style: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      border-left: 15px solid rgb(129, 103, 169);
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 0 10px #cbb5dd;
+  }
+  .comments_destroy_svg, .comments_edit_svg {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      transition: transform 0.5s;
+  }
+
+</style>

@@ -1,0 +1,26 @@
+<div id="<%= dom_id filer %>">
+ <% if filer.persisted? %>
+                <tr>
+                  <td>
+                <% if filer.attach.attached? %>
+                <% if  filer.attach.image?%>
+                                    <h2 class="entry-title"><a href="#"><%= link_to image_tag(filer.attach, class: "img_upload"),  rails_blob_path(filer.attach, disposition: "attachment") %>
+                  
+                      <% elsif filer.attach.audio? %>
+                                    <h2 class="entry-title"><a href="#"><%= filer.attach.filename %>
+                                      <audio controls>
+                                       <source src=" <%= rails_blob_url(filer.attach, disposition: "attachment") %>" type="audio/mpeg"/>
+                                       </audio></a></h2>
+                   <% else %>
+                  <h2 class="entry-title"><a href="#"><%= link_to filer.attach.filename,  rails_blob_path(filer.attach, disposition: "attachment") %></a></h2>
+                                        
+                  <% end %>
+                  
+                  <% end %>
+                  
+                  </td>
+                  <td><%= filer.description %></td>
+          
+                </tr>
+                <% end %>
+</div>

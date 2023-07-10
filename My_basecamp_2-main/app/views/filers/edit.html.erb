@@ -1,0 +1,48 @@
+<div align="center" style="font-size: 30px;">
+<h1>Update Attachment</h1>
+<div>
+<br>
+<%= form_for([@filer.project, @filer]) do |f| %>
+  <div style="width: 100%;display: flex;justify-content: center;margin-bottom: 2rem;"class="container">
+    <div align="center" style="display: flex;justify-content: center; width: 90%;background-color: #ffffff;border-radius: 10rem;box-shadow: 0 0 1rem #dddcdc;overflow: hidden;transition: width 1s;">
+      <%= f.text_field :description, id: "form1",style: "width: 100%; padding: 0 2rem; outline: none;border: none;font-size: 2rem;", required: true %>
+      <%= f.file_field :attach, id: "form1",style: "width: 100%; padding: 0 2rem; outline: none;border: none;font-size: 2rem;margin-top: 8px;", required: true %>
+      <%= f.submit "Create", style: "text-transform: none;border: none;background-image: linear-gradient(to right bottom, rgb(199, 188, 217), rgb(129, 103, 169)); color: #32383d; font-weight: 700;font-size: 2rem;display: inline-block;text-decoration: none;transition: all 0.5s;position: relative;border: none;cursor: pointer;"%>
+    </div>
+  </div>
+  </div>
+</div>
+
+<% end %>
+
+
+<a href="<%= new_project_filer_path(@project) %>"  >
+  <button class="button-34" style="background: #bd2193c2;">
+    Back
+  </button>
+</a>
+</div>
+
+<style>
+  .button-34 {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
+</style>
